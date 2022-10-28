@@ -13,6 +13,9 @@ on:
       PROJECT_NAME:
         required: true
         type: string
+      ENVIRONMENT:
+        required: true
+        type: string
       REGISTRY:
         required: false
         type: string
@@ -23,6 +26,7 @@ env: "${{secrets}}"
 jobs:
   docker-deploy:
     runs-on: ${{ fromJson(inputs.LABELS) }}
+    environment: ${{ inputs.ENVIRONMENT }}
 
     steps:
       - name: Checkout code
