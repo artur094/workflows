@@ -43,5 +43,5 @@ jobs:
         env: ${{ fromJson( inputs.IMAGE_NAMES ) }}
         run: |
           docker-compose --project-name ${{ inputs.PROJECT_NAME }} -f ${{ inputs.DOCKER_COMPOSE_FILE }} pull
-          docker-compose --project-name ${{ inputs.PROJECT_NAME }} -f ${{ inputs.DOCKER_COMPOSE_FILE }} down
+          docker-compose --project-name ${{ inputs.PROJECT_NAME }} -f ${{ inputs.DOCKER_COMPOSE_FILE }} stop
           docker-compose --project-name ${{ inputs.PROJECT_NAME }} -f ${{ inputs.DOCKER_COMPOSE_FILE }} up -d --build
